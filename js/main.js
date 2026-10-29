@@ -84,12 +84,12 @@
 
   /* ---------- Rotating tagline ---------- */
   const TAGLINES = [
-    "Now with 30% more crunch than last Tuesday.",
+    "Now with extra crunch and extra cheer.",
     "Voted #1 taco bar by Pete's mom (twice).",
-    "Our salsa is hotter than your ex's new partner.",
+    "Our salsa brings the sunshine and a little sizzle.",
     "Lettuce be real: you came here for the tacos.",
     "We put the 'spicy' in 'Spicy Pete's'. It was right there.",
-    "Guaranteed to pair well with stretchy pants.",
+    "Guaranteed to pair well with a happy appetite.",
     "Shell yeah.",
   ];
   let tagIdx = 0;
@@ -139,8 +139,8 @@
       add.type = "button";
       add.addEventListener("click", () => {
         toast(`🌮 "${item.name}" added! (Just kidding, this is a demo. But we appreciate the enthusiasm.)`);
-        if (item.spice >= 5) petesSay("Ghost Pepper? Brave. I'll alert the fire department.");
-        else if (item.veg) petesSay("A veggie lover! Respect. More pork for me.");
+        if (item.spice >= 5) petesSay("Ghost Pepper? Ask me for a cool glass of milk.");
+        else if (item.veg) petesSay("A veggie lover! Respect. I'll save Pete a veggie taco too.");
         else petesSay(`Ooh, ${item.name}! Excellent taste. Almost as good as mine.`);
         bumpStat("tacosServed", 1);
       });
@@ -198,10 +198,10 @@
   const stats = {
     tacosServed: Math.round(mins * 2.7) + rand(20, 60),
     hungryHumans: rand(18, 64),
-    salsaTears: Math.round(mins * 0.35) + rand(3, 12),
+    salsaSmiles: Math.round(mins * 0.35) + rand(3, 12),
     napkinsUsed: Math.round(mins * 9.1) + rand(50, 200),
   };
-  const shown = { tacosServed: 0, hungryHumans: 0, salsaTears: 0, napkinsUsed: 0 };
+  const shown = { tacosServed: 0, hungryHumans: 0, salsaSmiles: 0, napkinsUsed: 0 };
   const fmt = new Intl.NumberFormat("en-US");
 
   function renderStats() {
@@ -249,7 +249,7 @@
 
   setInterval(() => bumpStat("tacosServed", rand(1, 4)), 2200);
   setInterval(() => bumpStat("hungryHumans", rand(-3, 4)), 3100);
-  setInterval(() => { if (Math.random() < 0.45) bumpStat("salsaTears", 1); }, 4000);
+  setInterval(() => { if (Math.random() < 0.45) bumpStat("salsaSmiles", 1); }, 4000);
   setInterval(() => bumpStat("napkinsUsed", rand(3, 15)), 1700);
 
   /* Order feed */
@@ -282,10 +282,10 @@
 
   /* Spice meter */
   const SPICE_LEVELS = [
-    [20, "Mild. Like a jalapeño that went to therapy."],
-    [40, "Medium-ish. Like a jalapeño with commitment issues."],
+    [20, "Mild. A gentle hello from the jalapeño."],
+    [40, "Medium-ish. A cheerful kick of jalapeño."],
     [60, "Hot. Somebody just ordered the Salsa Flight."],
-    [80, "Very hot. The smoke alarm is filing a complaint."],
+    [80, "Very hot. The kitchen is doing a happy salsa dance."],
     [101, "🔥 GHOST PEPPER MODE. Pete is fanning himself with a tortilla."],
   ];
   let spice = 45;
