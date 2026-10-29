@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spicy Pete's Tacos 🌮 | Home of Pete, the Taco Monster</title>
+  <meta name="description" content="Spicy Pete's Tacos – a taco bar run by a 3D taco monster with questionable judgment and excellent salsa." />
+  <meta name="theme-color" content="#1d0f0a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌮</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lilita+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#menu">Skip to the tacos</a>
+
+  <div class="papel-picado" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#top" class="logo" aria-label="Spicy Pete's Tacos home">
+      <span class="logo-icon" aria-hidden="true">🌮</span>
+      <span class="logo-text">Spicy Pete's <em>Tacos</em></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">☰</button>
+    <nav id="site-nav" class="site-nav">
+      <a href="#menu">Menu</a>
+      <a href="#live">Live Taco-Meter</a>
+      <a href="#pete">Meet Pete</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit" class="btn btn-small">Visit Us</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span id="open-status" class="status-pill">Checking if we're open…</span></p>
+        <h1>Tacos So Good <span class="hl">They Should Be Illegal.</span></h1>
+        <p class="hero-sub">Our lawyer says they're not. Our lawyer also eats here for free. <br />
+          Hand-crafted tacos, dangerously spicy salsas &amp; one (1) emotionally available taco monster.</p>
+        <div class="hero-ctas">
+          <a href="#menu" class="btn">See the Menu</a>
+          <button type="button" class="btn btn-ghost" id="taco-rain-btn">Make It Rain Tacos 🌮</button>
+        </div>
+        <p class="tagline" aria-live="polite"><span id="rotating-tagline">Now with 30% more crunch than last Tuesday.</span></p>
+      </div>
+
+      <div class="hero-mascot">
+        <div id="mascot-stage" class="mascot-stage" role="img" aria-label="Pete, a 3D animated taco monster mascot with googly eyes and fangs">
+          <div class="mascot-fallback" aria-hidden="true">
+            <span class="fallback-taco">🌮</span>
+            <span class="fallback-eyes">👀</span>
+          </div>
+        </div>
+        <div id="speech-bubble" class="speech-bubble" aria-live="polite">Hi! I'm Pete. Poke me. I dare you.</div>
+        <p class="mascot-hint">👆 Click Pete for unsolicited wisdom</p>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>🌶️ Warning: Salsa may cause spontaneous karaoke</span>
+        <span>🌮 Taco Tuesday is every day if you believe hard enough</span>
+        <span>🥑 Guac is extra. So are we.</span>
+        <span>🔥 Our ghost pepper salsa has its own lawyer</span>
+        <span>🧀 Cheese pull certified by the International Cheese Pull Committee*</span>
+        <span>👹 Pete does not bite. Usually.</span>
+        <span>🌶️ Warning: Salsa may cause spontaneous karaoke</span>
+        <span>🌮 Taco Tuesday is every day if you believe hard enough</span>
+        <span>🥑 Guac is extra. So are we.</span>
+        <span>🔥 Our ghost pepper salsa has its own lawyer</span>
+        <span>🧀 Cheese pull certified by the International Cheese Pull Committee*</span>
+        <span>👹 Pete does not bite. Usually.</span>
+      </div>
+    </div>
+
+    <!-- LIVE COUNTER -->
+    <section id="live" class="section live">
+      <div class="section-head">
+        <h2><span class="live-dot" aria-hidden="true"></span> The Live Taco-Meter™</h2>
+        <p>Real-time stats from inside the taco bar. Updated faster than Pete can say “¿más salsa?”</p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-emoji" aria-hidden="true">🌮</span>
+          <span class="stat-value" id="stat-tacos" data-stat="tacosServed">0</span>
+          <span class="stat-label">Tacos served today</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-emoji" aria-hidden="true">🤤</span>
+          <span class="stat-value" id="stat-hungry" data-stat="hungryHumans">0</span>
+          <span class="stat-label">Hungry humans on this page right now</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-emoji" aria-hidden="true">😭</span>
+          <span class="stat-value" id="stat-tears" data-stat="salsaTears">0</span>
+          <span class="stat-label">Tears shed over the Ghost Pepper Salsa</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-emoji" aria-hidden="true">🧻</span>
+          <span class="stat-value" id="stat-napkins" data-stat="napkinsUsed">0</span>
+          <span class="stat-label">Napkins sacrificed to the taco gods</span>
+        </article>
+      </div>
+
+      <div class="live-lower">
+        <div class="order-feed">
+          <h3>🛎️ Fresh Off the Grill</h3>
+          <ul id="order-feed" class="feed-list" aria-live="polite"></ul>
+        </div>
+        <div class="spice-meter">
+          <h3>🌡️ Kitchen Spice Level</h3>
+          <div class="meter" role="meter" aria-label="Kitchen spice level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" id="spice-meter">
+            <div class="meter-fill" id="spice-fill"></div>
+          </div>
+          <p class="meter-label" id="spice-label">Medium-ish. Like a jalapeño with commitment issues.</p>
+          <p class="fine-print">*Stats are lovingly simulated by Pete, who is a monster and also very bad at math.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section menu">
+      <div class="section-head">
+        <h2>The Menu</h2>
+        <p>Everything is made fresh daily by people who genuinely love you (in a normal, restaurant way).</p>
+      </div>
+
+      <div class="menu-tabs" role="tablist" aria-label="Menu categories" id="menu-tabs"></div>
+      <div class="menu-legend">
+        <span>🌶️ = spice level</span>
+        <span>🌱 = vegetarian</span>
+        <span>⭐ = Pete's Pick</span>
+      </div>
+      <div id="menu-grid" class="menu-grid" role="tabpanel" aria-live="polite"></div>
+      <p class="fine-print center">Prices in US dollars and emotional damage. Consuming raw or undercooked hot sauce may increase your risk of yelling.</p>
+    </section>
+
+    <!-- MEET PETE -->
+    <section id="pete" class="section pete">
+      <div class="section-head">
+        <h2>Meet Pete 👹</h2>
+        <p>CEO, head chef, and the only employee who is legally a taco.</p>
+      </div>
+      <div class="pete-grid">
+        <div class="pete-card">
+          <h3>The Legend</h3>
+          <p>In 2009, a lonely taco was left under a heat lamp for 37 consecutive hours. Exposed to radioactive levels of
+            ghost pepper and Mariachi music, it awoke with googly eyes, tiny arms, and a deep calling: <strong>to feed the people.</strong></p>
+          <p>Pete has since won zero (0) culinary awards, mostly because he keeps eating the trophies.</p>
+        </div>
+        <div class="pete-card">
+          <h3>Pete's Stats</h3>
+          <ul class="pete-stats">
+            <li><span>Height</span><span>2 ft 3 in (with hair… he has no hair)</span></li>
+            <li><span>Shell</span><span>Corn, crunchy, flawless</span></li>
+            <li><span>Fears</span><span>Forks, sporks, Tuesdays ending</span></li>
+            <li><span>Hobbies</span><span>Salsa dancing, salsa making, salsa</span></li>
+            <li><span>Star sign</span><span>Cancer (the crab, the crab tacos)</span></li>
+          </ul>
+        </div>
+        <div class="pete-card">
+          <h3>FAQ</h3>
+          <details>
+            <summary>Is Pete going to eat me?</summary>
+            <p>No. Pete is a strict tacotarian. He only eats tacos, which raises some questions we choose not to ask.</p>
+          </details>
+          <details>
+            <summary>Is the Ghost Pepper Salsa actually that hot?</summary>
+            <p>We make you sign a waiver. The waiver is printed on a napkin. You will need the napkin.</p>
+          </details>
+          <details>
+            <summary>Do you have gluten-free options?</summary>
+            <p>Yes! All of our corn tortillas are gluten-free. Pete is not. Please do not lick Pete.</p>
+          </details>
+          <details>
+            <summary>Can I bring my dog?</summary>
+            <p>Absolutely. Our patio is dog-friendly and Pete loves dogs. Dogs are confused by Pete.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section reviews">
+      <div class="section-head">
+        <h2>What People Are Screaming</h2>
+        <p>100% real reviews from 100% real people we definitely did not make up.</p>
+      </div>
+      <div class="reviews-grid">
+        <blockquote class="review">
+          <p>“I ordered the Ghost Pepper Salsa. I can now see sounds. 10/10.”</p>
+          <cite>— Brad K., ★★★★★</cite>
+        </blockquote>
+        <blockquote class="review">
+          <p>“The taco monster winked at me. I've been coming back every day for 3 years hoping he'll do it again.”</p>
+          <cite>— Linda P., ★★★★★</cite>
+        </blockquote>
+        <blockquote class="review">
+          <p>“My wife left me for the Birria Bae. Honestly? I get it.”</p>
+          <cite>— Gary T., ★★★★☆</cite>
+        </blockquote>
+        <blockquote class="review">
+          <p>“Asked for mild. Got mild. Cried anyway. Unclear why. Best tacos in town.”</p>
+          <cite>— Priya S., ★★★★★</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section id="visit" class="section visit">
+      <div class="section-head">
+        <h2>Come Get Spicy</h2>
+        <p>Follow the smell of lime and poor decisions.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>📍 Location</h3>
+          <p>123 Guacamole Ave<br />Spiceville, TX 77777<br /><small>(Next to the parking lot Pete is not allowed in anymore)</small></p>
+        </div>
+        <div class="visit-card">
+          <h3>🕒 Hours</h3>
+          <ul class="hours" id="hours-list">
+            <li><span>Mon – Thu</span><span>11am – 10pm</span></li>
+            <li><span>Fri – Sat</span><span>11am – 2am</span></li>
+            <li><span>Sunday</span><span>11am – 9pm (Pete's spa day after)</span></li>
+          </ul>
+        </div>
+        <div class="visit-card">
+          <h3>📞 Contact</h3>
+          <p>(555) TAC-OSSS<br />hola@spicypetestacos.example<br /><small>Pete answers the phone himself. He mostly just breathes heavily and says “taco.”</small></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Spicy Pete's Tacos. All rights reserved. All salsas reserved too, especially the green one.</p>
+    <p class="fine-print">No monsters were harmed in the making of this website. One intern was mildly singed.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="taco-rain" class="taco-rain" aria-hidden="true"></div>
+
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/mascot.js"></script>
+</body>
+</html>
