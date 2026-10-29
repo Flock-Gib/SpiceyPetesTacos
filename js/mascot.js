@@ -10,7 +10,7 @@ const QUIPS = [
   "I'm not a monster. I'm a TACO monster. Totally different paperwork.",
   "Fun fact: I am 40% shell, 60% feelings.",
   "Stop poking me! …Okay, one more.",
-  "My therapist says I'm 'too saucy'. I say she's not saucy enough.",
+  "My salsa recipe is a family secret. Pete's family is also taco-shaped.",
   "Have you tried the Birria Bae? It's my cousin. We don't talk.",
   "If you're reading this, you should be eating a taco.",
   "I'd tell you a taco joke, but it's too cheesy.",
